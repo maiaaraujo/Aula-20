@@ -73,14 +73,37 @@ let alunos = [
     }
 ]
 
+function listarAlunos(){
+
 let tabelab = document.getElementById("tabela-body");
-tabelab.innerHTML = `<tr>
-<td>${alunos[4].nome}</td>
-<td>${alunos[4].email}</td>
-<td>${alunos[4].telefone}</td>
-<td>${alunos[4].cidade}</td>
+
+alunos.forEach((aluno) => {
+
+tabelab.innerHTML += `<tr>
+<td>${aluno.id}</td>
+<td>${aluno.nome}</td>
+<td>${aluno.email}</td>
+<td>${aluno.telefone}</td>
+<td>${aluno.cidade}</td>
 <td>
     <button class="btn btn-warning">Editar</button>
     <button class="btn btn-danger">Excluir</button>
 </td>
 </tr>`;
+
+})
+}
+
+function salvarAlunos(){
+    event.preventDefault();
+
+    let aluno = {
+        nome: nome.value,
+        email: email.value,
+        telefone: telefone.value,
+        cidade: cidade.value
+
+    }
+    alunos.push(aluno)
+
+}
